@@ -1,0 +1,16 @@
+server:
+  port: 9003
+spring:
+  application:
+    name: USER-LOGIN-SERVICE
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/user?currentSchema=login
+    username: postgres
+    password: postgres
+debug: true

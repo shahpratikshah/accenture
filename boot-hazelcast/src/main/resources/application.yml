@@ -1,0 +1,18 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: REGISTRATION-SERVICE
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/accenture?currentSchema=dbsone
+    username: postgres
+    password: postgres
+  hazelcast:
+    config:

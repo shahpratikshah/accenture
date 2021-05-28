@@ -1,0 +1,30 @@
+version: '3'
+services:
+  user:
+    container_name: user_registration
+    build:
+      context: ./user-registration
+      dockerfile: Dockerfile
+    image: shahpratikshah/user
+    ports:
+      - 9001:9001
+  department:
+    container_name: authentication_service
+    build:
+      context: ./authentication-service
+      dockerfile: Dockerfile
+    image: shahpratikshah/user
+    ports:
+      - 9002:9002
+    links:
+      - "user:user-service"
+  service-regisry:
+    container_name: service_registry
+    build:
+      context: ./service-registry
+      dockerfile: Dockerfile
+    image: shahpratikshah/service-registry
+    ports:
+      - 8761:8761
+    links:
+      - "user:user-service"

@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: USER-REGISTRATION-SERVICE
+          uri: lb://USER-REGISTRATION-SERVICE
+          predicates:
+            - Path=/users/**
+        - id: USER-AUTHENTICATION-SERVICE
+          uri: lb://USER-AUTHENTICATION-SERVICE
+          predicates:
+            - Path=/credentials/**
+        - id: USER-LOGIN-SERVICE
+          uri: lb://USER-LOGIN-SERVICE
+          predicates:
+            - Path=/login/**
+  application:
+    name: CLOUD-GATEWAY-SERVICE
+
+server:
+  port: 9191
